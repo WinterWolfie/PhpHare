@@ -1,7 +1,9 @@
 {
+    "name": "winterwolfie/phphare",
+
     "description": "a framework",
     "keywords": ["php", "framework"],
-    "license": "BSD-3-Clause",
+    "license": "MIT",
 
     "authors": [
         {
@@ -10,14 +12,14 @@
         }
     ],
 
-    "name": "winterwolfie/phphare",
+
     "require": {
         "php": "^7.1.3 || ^8.0"
     },
 
     "autoload": {
         "psr-4": {
-            "PhpHare\\": "./"
+            "PhpHare\\": "src"
         }
     }
 }
