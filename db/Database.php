@@ -1,10 +1,10 @@
 <?php
 
 
-namespace app\src\core\db;
+namespace PhpHare\db;
 
-use app\src\core\Application;
 use PDO;
+use PhpHare\Application;
 
 class Database
 {

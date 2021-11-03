@@ -1,9 +1,10 @@
 <?php
 
 
-namespace app\src\core\db;
+namespace PhpHare\db;
 
-use app\src\core\Model;
+
+use PhpHare\Model;
 
 abstract class DbModel extends Model
 {

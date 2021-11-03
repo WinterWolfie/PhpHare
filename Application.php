@@ -1,9 +1,8 @@
 <?php
 
-namespace app\src\core;
+namespace PhpHare;
 
-
-use app\src\core\db\Database;
+use PhpHare\db\Database;
 
 class Application
 {
@@ -57,7 +56,6 @@ class Application
                 'exception' => $e
             ]);
         }
-
     }
 
     /**
@@ -76,7 +74,8 @@ class Application
         $this->controller = $controller;
     }
 
-    public function login(UserModel $user){
+    public function login(UserModel $user): bool
+    {
         $this->user = $user;
         $primaryKey = $user->primaryKey();
         $primaryValue = $user->{$primaryKey};

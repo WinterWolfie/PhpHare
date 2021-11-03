@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\src\core;
+namespace PhpHare;
 
 
 use app\src\core\middlewares\BaseMiddleware;
