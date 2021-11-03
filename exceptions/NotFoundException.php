@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\src\core\exceptions;
+namespace PhpHare\exceptions\exceptions;
 
 
 class NotFoundException extends \Exception

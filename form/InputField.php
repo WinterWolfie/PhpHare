@@ -1,9 +1,7 @@
 <?php
 
 
-namespace app\src\core\form;
-
-use app\src\core\Model;
+namespace PhpHare\form;
 
 class InputField extends BaseField
 {

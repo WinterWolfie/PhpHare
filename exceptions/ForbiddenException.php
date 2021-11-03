@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\src\core\exceptions;
+namespace PhpHare\exceptions;
 
 
 class ForbiddenException extends \Exception

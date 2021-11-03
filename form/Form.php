@@ -1,9 +1,8 @@
 <?php
 
 
-namespace app\src\core\form;
+namespace PhpHare\form;
 
-use app\src\core\Model;
 
 class Form
 {

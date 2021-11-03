@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\src\core\middlewares;
+namespace PhpHare\middlewares;
 
 
 abstract class BaseMiddleware

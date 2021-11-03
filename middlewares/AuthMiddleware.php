@@ -1,12 +1,7 @@
 <?php
 
 
-namespace app\src\core\middlewares;
-
-
-
-use app\src\core\Application;
-use app\src\core\exceptions\ForbiddenException;
+namespace PhpHare\middlewares;
 
 class AuthMiddleware extends BaseMiddleware
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\src\core\form;
+namespace PhpHare\form;
 
 
 class TextAreaField extends BaseField
