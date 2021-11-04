@@ -4,7 +4,9 @@
 namespace PhpHare;
 
 
-use app\src\core\middlewares\BaseMiddleware;
+
+
+use PhpHare\middlewares\BaseMiddleware;
 
 class Controller
 {
@@ -15,9 +17,8 @@ class Controller
      */
     protected array $middlewares = [];
 
-
     public  function render($view, $params = []){
-        return Application::$app->view->renderView($view, $params);
+       Application::$app->view->renderView($view, $params);
     }
 
     public  function setLayout($layout){

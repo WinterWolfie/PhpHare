@@ -72,7 +72,7 @@ class View
         }
     }
 
-    public function addScript(array $files) {
+    public function addScripts(array $files) {
         foreach ($files as $file) {
             array_push($this->scripts, $file);
         }
