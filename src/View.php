@@ -6,15 +6,22 @@ namespace PhpHare;
 
 class View
 {
-    public string $title = '';
-    public array $cssFiles = array();
+    public string $viewDir;
+    public string $layoutDir;
 
-    public array $jsFiles = array();
-    public array $jsModules = array();
-    public array $typeScriptModules = array();
-    public array $jsLibs = array();
+    public string $layout;
 
-    public array $scripts = array();
+
+    public function setViewDir(string $dir) {
+        $this->viewDir = $dir;
+    }
+    public function setLayoutDir(string $dir) {
+        $this->layoutDir = $dir;
+    }
+    public function setMainLayout(string $layout) {
+        $this->layout = $layout;
+    }
+
 
 
     public function renderView($view, $params = [])
@@ -34,13 +41,13 @@ class View
 
     protected function layoutContent()
     {
-        $layout = Application::$app->layout;
+        $layout = $this->layout;
         if (Application::$app->controller){
             $layout = Application::$app->controller->layout;
         }
 
         ob_start();
-        include_once Application::$ROOT_DIR."/src/views/layouts/$layout.php";
+        include_once Application::$ROOT_DIR. $this->layoutDir . $layout . ".php";
         return ob_get_clean();
     }
     protected function renderOnlyView($view, $params){
@@ -50,39 +57,26 @@ class View
         }
 
         ob_start();
-        include_once Application::$ROOT_DIR."/src/views/$view.php";
+        include_once Application::$ROOT_DIR . $this->viewDir . $view . ".php";
         return ob_get_clean();
     }
 
 
-
-    public function addScripts(string $dir) {
-        $files = scandir($dir);
-
-    }
-
+    public array $cssFiles = array();
+    public array $scripts = array();
+    public array $jsLibs = array();
 
     public function addCss(array $files){
         foreach ($files as $file) {
             array_push($this->cssFiles, $file);
         }
     }
-    public function addJs(array $files) {
-        foreach ($files as $file) {
-            array_push($this->jsFiles, $file);
-        }
-    }
-    public function addJsModule(array $files) {
-        foreach ($files as $file) {
-            array_push($this->jsModules, $file);
-        }
-    }
-    public function addTypeScript(array $files) {
-        foreach ($files as $file) {
-            array_push($this->typeScriptModules, $file);
-        }
-    }
 
+    public function addScript(array $files) {
+        foreach ($files as $file) {
+            array_push($this->scripts, $file);
+        }
+    }
 
     public function addJsLib(array $files) {
         foreach ($files as $file) {

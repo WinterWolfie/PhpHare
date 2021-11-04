@@ -5,7 +5,7 @@ namespace PhpHare;
 
 
 
-use app\src\core\db\DbModel;
+use PhpHare\db\DbModel;
 
 abstract class UserModel extends DbModel
 {

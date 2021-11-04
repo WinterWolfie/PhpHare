@@ -8,7 +8,6 @@ class Application
 {
     public static string $ROOT_DIR;
 
-    public string $layout = 'main';
     public string $userClass;
     public Router $router;
     public Request $request;
@@ -18,7 +17,7 @@ class Application
     public ?UserModel $user;
     public View $view;
 
-    public string $PublicDir = "http://localhost:6420";
+    public string $PublicDir;
 
     public Controller $controller;
     public static Application $app;
@@ -28,15 +27,13 @@ class Application
         self::$ROOT_DIR = $rootPath;
         self::$app = $this;
 
-        $this->userClass = $config['userClass'];
+        $this->userClass = User::class;
         $this->request = new Request();
         $this->response = new Response();
         $this->session = new Session();
         $this->controller = new Controller();
         $this->router = new Router($this->request, $this->response);
         $this->view = new View();
-
-        $this->db = new Database($config['db']);
 
         $primaryValue = $this->session->get('user');
         if ($primaryValue){
@@ -47,12 +44,20 @@ class Application
         }
     }
 
+    public function setPublicDir(string $dir) {
+        $this->PublicDir = $dir;
+    }
+
+    public function dbConnect(array $config) {
+        $this->db = new Database($config);
+    }
+
     public function run(){
         try{
             echo $this->router->resolve();
         }catch (\Exception $e){
             $this->response->setStatusCode($e->getCode());
-            echo $this->view->renderView('_error', [
+            $this->view->renderView('_error', [
                 'exception' => $e
             ]);
         }
@@ -87,7 +92,9 @@ class Application
         $this->user = null;
         $this->session->remove('user');
     }
-    public static function isGuest(){
+
+    public static function isGuest(): bool
+    {
         return !self::$app->user;
     }
 }

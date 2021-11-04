@@ -2,7 +2,9 @@
 
 namespace PhpHare;
 
-use app\src\core\exceptions\NotFoundException;
+
+
+use PhpHare\exceptions\exceptions\NotFoundException;
 
 class Router
 {
@@ -33,7 +35,6 @@ class Router
     {
        $path =  $this->request->getPath();
        $method = $this->request->method();
-       //echo("---".$method."---");
 
        $callback = $this->routes[$method][$path] ?? false;
        if ($callback === false) {
