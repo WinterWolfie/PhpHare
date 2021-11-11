@@ -1,2 +1,2 @@
 # PhpHare
-a realy wack php framework
+a  wack php framework
